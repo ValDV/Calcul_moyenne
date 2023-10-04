@@ -4,7 +4,7 @@ max_time = float("-inf")
 
 total_seconds = 0  # Initialisation de la valeur totale en secondes
 
-for i in range(10):  # Répéter 31 fois
+for i in range(10):  # Répéter 10 fois
     time_input = input("Veuillez entrer un temps (minutes:secondes) : ")  # Demander à l'utilisateur de rentrer le temps
 
     # Diviser le temps entré en minutes et secondes
