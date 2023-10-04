@@ -1,26 +1,33 @@
-# Initialisation des valeurs minimale et maximale
-min_temperature = float("inf")
-max_temperature = float("-inf")
+# Initialisation des valeurs minimale et maximale en secondes
+min_time = float("inf")
+max_time = float("-inf")
 
-Total = 0  # Initialisation de la valeur de Total
+total_seconds = 0  # Initialisation de la valeur totale en secondes
 
-for i in range(31):  # Répéter 31 fois
-    temperature = float(input("Veuillez entrer une température : "))  # Demander à l'utilisateur de rentrer la valeur de la température
-    Total = Total + temperature  # Additionne la valeur Total et la température
+for i in range(10):  # Répéter 31 fois
+    time_input = input("Veuillez entrer un temps (minutes:secondes) : ")  # Demander à l'utilisateur de rentrer le temps
+
+    # Diviser le temps entré en minutes et secondes
+    minutes, seconds = map(int, time_input.split(":"))
+
+    # Convertir le temps en secondes
+    time_in_seconds = minutes * 60 + seconds
+
+    total_seconds += time_in_seconds  # Additionne la valeur totale et le temps en secondes
 
     # Mettre à jour les valeurs minimale et maximale
-    if temperature < min_temperature:
-        min_temperature = temperature
-    if temperature > max_temperature:
-        max_temperature = temperature
+    if time_in_seconds < min_time:
+        min_time = time_in_seconds
+    if time_in_seconds > max_time:
+        max_time = time_in_seconds
 
-# Calcule la moyenne
-moyenne = Total / 31
+# Calcule la moyenne en secondes
+average_seconds = total_seconds / 10
 
-# Calcule l'étendue
-etendue = max_temperature - min_temperature
+# Calcule l'étendue en secondes
+range_seconds = max_time - min_time
 
-print(f"La moyenne des températures est de {moyenne}")
-print(f"La température minimale est {min_temperature}")
-print(f"La température maximale est {max_temperature}")
-print(f"L'étendue des températures est de {etendue}")
+print(f"La moyenne des temps est de {average_seconds} secondes")
+print(f"Le temps minimum est {min_time} secondes")
+print(f"Le temps maximum est {max_time} secondes")
+print(f"L'étendue des temps est de {range_seconds} secondes")
